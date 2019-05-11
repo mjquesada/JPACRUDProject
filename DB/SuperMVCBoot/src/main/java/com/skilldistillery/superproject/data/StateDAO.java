@@ -10,5 +10,5 @@ public interface StateDAO {
 	public List<State> returnAll();
 	public State createState(State state);
 	public State updateState(int id, State state);
-	public boolean destroyState(int id);
+	public State destroyState(State state,int id);
 }

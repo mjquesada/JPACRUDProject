@@ -19,5 +19,11 @@
 	<input type="submit" value="Show All States">
 </form>
 
+<form action="createObjectForController.do" method="POST">
+	<%-- <input type="hidden" value="${state.id}" name="updateId"> --%>
+	<input type="submit" value="Create State">
+	
+</form>
+
 </body>
 </html>

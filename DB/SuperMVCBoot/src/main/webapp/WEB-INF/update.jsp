@@ -56,7 +56,7 @@
 
 
 <tr>
-<td><input type="submit" value="Update7"/></td>
+<td><input type="submit" value="Update"/></td>
 <td><input type="hidden" value="${state.id}" name="updateS"></td>
 </tr>
 

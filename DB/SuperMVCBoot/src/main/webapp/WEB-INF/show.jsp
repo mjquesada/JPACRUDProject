@@ -10,9 +10,16 @@
 <body>
 
 <div>
-	<h5>${state.name}</h5>
+	<h3>${state.name}</h3>
 	<p>Date Founded: ${state.dateFounded}</p>
 	<p>Founder: ${state.founder}</p>
+	<p>Greatest Leader: ${state.greatestLeader}</p>
+	<p>Population: ${state.population}</p>
+	<p>Language: ${state.language}</p>
+	<p>Religion: ${state.religion}</p>
+	<p>Date Founded: ${state.dateFounded}</p>
+	<p>Date Ended: ${state.dateEnded}</p>
+	<p>Legacy: ${state.legacy}</p>
 </div>
 
 <div>
@@ -22,6 +29,17 @@
 	<input type="submit" value="Update State">
 	
 </form>
+
+
+<form action="destroyState.do" method="GET">
+	<input type="hidden" value="${state.id}" name="destroyId">
+	<input type="submit" value="Destroy State">
+</form>
+
+<form action="/" method="GET">
+	<input type="submit" value="Home">
+</form>
+
 
 </div>
 
