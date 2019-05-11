@@ -1,8 +1,8 @@
 package com.skilldistillery.superproject.data;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
@@ -16,6 +16,25 @@ public class StateDAOIMPL implements StateDAO {
 	
 	@PersistenceContext
 	private EntityManager em;
+	
+	
+	public State findById(int id) {
+		State state = em.find(State.class, id);
+		
+		return state;
+	}
+	
+	public List<State> returnAll() {
+		String jpql = "SELECT state FROM State state";
+		
+		List<State> allStates = em.createQuery(jpql, State.class).getResultList();
+		
+		for (State stateR : allStates) {
+			System.out.println(stateR);
+		}
+		
+		return allStates;
+	}
 	
 	
 	@Override
@@ -42,7 +61,7 @@ public class StateDAOIMPL implements StateDAO {
 		updatedState.setDateFounded(state.getDateFounded());
 		updatedState.setDateEnded(state.getDateEnded());
 		
-		return null;
+		return updatedState;
 	}
 
 	@Override
@@ -50,6 +69,8 @@ public class StateDAOIMPL implements StateDAO {
 		
 		return false;
 	}
+	
+	
 
 
 }

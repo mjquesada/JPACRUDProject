@@ -10,9 +10,7 @@
     
     <!--  Here are my entities! -->
     <class>com.skilldistillery.jpavideostore.entities.State</class>
-  
 
-    
 
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/superdb?useSSL=false" />
