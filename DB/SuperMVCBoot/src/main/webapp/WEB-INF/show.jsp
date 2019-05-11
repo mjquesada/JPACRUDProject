@@ -15,5 +15,15 @@
 	<p>Founder: ${state.founder}</p>
 </div>
 
+<div>
+
+<form action="getStateToUpdate.do" method="GET">
+	<input type="hidden" value="${state.id}" name="updateId">
+	<input type="submit" value="Update State">
+	
+</form>
+
+</div>
+
 </body>
 </html>

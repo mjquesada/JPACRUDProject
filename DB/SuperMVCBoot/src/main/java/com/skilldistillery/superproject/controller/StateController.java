@@ -3,6 +3,7 @@ package com.skilldistillery.superproject.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,48 +18,47 @@ public class StateController {
 	@Autowired
 	private StateDAO stateDAO;
 	
-//	@RequestMapping(path = "/")
-//	public String index() {
-//		//model.addAttribute("updateState", stateDAO.updateState(id, state));
-//		System.out.println("Hegsg trhtrh htsgergerergeeees                ergregllo");
-//		return "index";
-//	}
+	@RequestMapping(path = "/")
+	public String index() {
+		return "index";
+	}
 	
+	//Finds a state by the id
 	@RequestMapping(path = "getState.do", method = RequestMethod.GET)
 	public ModelAndView getStateById(@RequestParam("sid") int sid) {
 		ModelAndView mv = new ModelAndView();
-		System.out.println(sid);
+		
 		State state = stateDAO.findById(sid);
 		
 		mv.addObject("state", state);
 		mv.setViewName("show");
-		System.out.println("efj3oit934ujfdakle w------------2 3r 32r9430u4");
 		return mv;
 	}
 	
-//	public ModelAndView getAllStates() {
-//		ModelAndView mv = new ModelAndView();
-//		mv.addObject("")
-//		return mv;
-//	}
-	
-	@RequestMapping(path="getAllStates.do")
+	//Button on home page that lists all states in db
+	@RequestMapping(path="getAllStates.do", method = RequestMethod.GET)
 	public String getAllStates(Model model) {
 		model.addAttribute("stateList", stateDAO.returnAll());
-		return "index";
+		return "listall";
 	}
 	
+	//Grabs the state that I want to update
+	@RequestMapping(path="getStateToUpdate.do")
+	public String getStateToUpdate(Model model, int updateId) {
+		model.addAttribute("state", stateDAO.findById(updateId));
+		return "update";
+	}
 	
-	
-	
-//	@RequestMapping(path = "updateState.do", method = RequestMethod.GET)
-//	public ModelAndView updateState(@RequestParam("updateS") int id) {
-//		ModelAndView mv = new ModelAndView();
-//		
-//		State state = stateDAO.updateState(id, state);
-//		
-//		
-//		return mv;
-//	}
+	//Updates that state from the list ID page
+	@RequestMapping(path = "updateState.do", method = RequestMethod.POST)
+	public ModelAndView updateState(@ModelAttribute("state") State state, @RequestParam("updateS")int id) {
+		ModelAndView mv = new ModelAndView();
+		System.out.println(state);
+		State updatedState = stateDAO.updateState(id, state);
+		mv.addObject(updatedState);
+		mv.setViewName("update");
+		
+		return mv;
+	}
 	
 }

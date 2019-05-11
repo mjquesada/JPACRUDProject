@@ -10,26 +10,14 @@
 <body>
 
 <form action="getState.do" method="GET">
-	State ID: <input type="text" name="sid" />
+	State ID: <input type="text" name="sid" /><br>
 	<input type="submit" value="Show State">
 </form>
 
+<br>
 <form action="getAllStates.do" method="GET">
 	<input type="submit" value="Show All States">
 </form>
-
-
-<%-- <%-- <ul>
-<c:forEach var="state" items="${stateList}">
-<li><a href="getState.do?sid=${state.id}">${state.name}</a></li>
-</c:forEach>
-</ul> --%> --%>
-
-<!-- <form action="getList.do" method="GET">
-List of States: <input type="text" name="listState" />
-<input type="submit" value="List States">
- -->
-
 
 </body>
 </html>

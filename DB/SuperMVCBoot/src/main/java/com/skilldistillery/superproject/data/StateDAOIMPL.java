@@ -36,7 +36,6 @@ public class StateDAOIMPL implements StateDAO {
 		return allStates;
 	}
 	
-	
 	@Override
 	public State createState(State state) {
 	
