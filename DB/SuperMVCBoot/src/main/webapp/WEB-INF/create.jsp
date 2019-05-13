@@ -6,6 +6,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+
+<style type="text/css"><%@include file ="style.css"%></style>
 <link
 	href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"
 	rel="stylesheet">
